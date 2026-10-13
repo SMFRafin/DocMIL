@@ -13,8 +13,8 @@ includes evidence-removal and label-permutation controls.
 
 ```
 notebooks/
-  docmil_findItAgain.ipynb   # full pipeline, DATASET = "fia", outputs kept
-  docmil_rtm.ipynb           # full pipeline, DATASET = "rtm", outputs kept
+  docmil_findItAgain.ipynb   # full pipeline, DATASET = "fia"
+  docmil_rtm.ipynb           # full pipeline, DATASET = "rtm"
 results/
   fia/  rtm/
     splits.json              # document IDs of every fold and of the test set
