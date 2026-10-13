@@ -1,0 +1,15 @@
+# data and large artefacts
+*.npy
+cache/
+ckpt/
+*.pt
+exh/
+docmil_rev_*/
+data/
+# notebooks / python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+# OS
+.DS_Store
+Thumbs.db

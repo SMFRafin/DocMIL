@@ -1,0 +1,17 @@
+# Core (versions used for the reported results: Python 3.13, CUDA 12.8)
+torch==2.11.0
+torchvision==0.26.0
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.3
+statsmodels>=0.14
+matplotlib>=3.8
+opencv-python-headless>=4.8
+Pillow>=10.0
+thop>=0.1.1
+
+# Optional: OCR / semantic features and LayoutLMv3 probe (RUN_OCR cell, not used for reported results)
+# Also needs the system package tesseract-ocr (+ tesseract-ocr-chi-sim for RTM)
+# pytesseract>=0.3.10
+# transformers>=4.40

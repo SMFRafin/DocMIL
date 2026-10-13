@@ -1,0 +1,14 @@
+hyperparameter,fia,rtm
+bag_size,16,12
+epochs,60,15
+exh_seeds,"(0, 1, 2)","(0,)"
+k_max,24,16
+k_pos_extra,16,8
+k_reserve,8,8
+k_train,48,24
+lc_folds,"(0, 1, 2, 3, 4)","(0,)"
+loto_folds,"(0, 1, 2, 3, 4)","(0,)"
+n_folds,5,3
+pos_weight_doc,4.0,1.0
+pos_weight_patch,6.0,4.0
+whole_res,512,384

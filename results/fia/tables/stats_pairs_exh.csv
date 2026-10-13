@@ -1,0 +1,2 @@
+family,A,B,n_models_A,n_models_B,auc_A,auc_B,delta,ci_lo,ci_hi,p_bca,n_pairs,lmm_est,lmm_se,p_lmm,lmm,p_holm,significant,p_bca_fmt,p_holm_fmt,p_lmm_fmt
+exhaustive,full,doc_only,3,3,0.8381113831936374,0.8383247553689053,-0.00021337217526784524,-0.005134553549550361,0.00472769861654114,0.9359194503139476,3,-0.00021337217526777122,0.003865677753755821,0.9609998207194766,one-sample t over fold x seed (not independent),0.9359194503139476,False,0.936,0.936,0.961

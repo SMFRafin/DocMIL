@@ -1,0 +1,322 @@
+{
+ "dataset": "rtm",
+ "root": "/kaggle/input/datasets/smfayaz/realtextmanip/RealTextManipulation",
+ "config": {
+  "dataset": "rtm",
+  "root": "/kaggle/input/datasets/smfayaz/realtextmanip/RealTextManipulation",
+  "out_dir": "/kaggle/working/docmil_rev_rtm",
+  "cache_dir": "/tmp/docmil_rtm_cache",
+  "scales": [
+   128,
+   192
+  ],
+  "stride_frac": 0.75,
+  "min_overlap": 12,
+  "k_max": 16,
+  "k_train": 24,
+  "k_reserve": 8,
+  "k_pos_extra": 8,
+  "bag_size": 12,
+  "cache_seed": 1234,
+  "pos_weight_doc": 1.0,
+  "pos_weight_patch": 4.0,
+  "focal_gamma": 2.0,
+  "aux_patch_weight": 0.3,
+  "emb": 192,
+  "batch_size": 8,
+  "epochs": 15,
+  "lr_head": 0.001,
+  "lr_backbone": 0.00015,
+  "weight_decay": 0.0001,
+  "freeze_until": 2,
+  "grad_clip": 1.0,
+  "amp": true,
+  "num_workers": 4,
+  "n_folds": 3,
+  "split_seed": 0,
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "seeds_t2": [
+   0
+  ],
+  "seeds_ctrl": [
+   0
+  ],
+  "seeds_sens": [
+   0
+  ],
+  "seeds_lc": [
+   0
+  ],
+  "lc_folds": [
+   0
+  ],
+  "loto_folds": [
+   0
+  ],
+  "exh_specs": [
+   "full",
+   "doc_only"
+  ],
+  "exh_seeds": [
+   0
+  ],
+  "sens_base": "full",
+  "lc_fracs": [
+   0.25,
+   0.5,
+   0.75
+  ],
+  "loto_min_forged": 10,
+  "tta": true,
+  "exh_tta": true,
+  "n_boot": 5000,
+  "alpha": 0.05,
+  "whole_res": 384,
+  "flip_aug": true,
+  "jpeg_aug": true,
+  "jpeg_qf_range": [
+   70,
+   100
+  ]
+ },
+ "k_pool": 24,
+ "presets_diff": {
+  "bag_size": {
+   "fia": 16,
+   "rtm": 12
+  },
+  "epochs": {
+   "fia": 60,
+   "rtm": 15
+  },
+  "exh_seeds": {
+   "fia": [
+    0,
+    1,
+    2
+   ],
+   "rtm": [
+    0
+   ]
+  },
+  "k_max": {
+   "fia": 24,
+   "rtm": 16
+  },
+  "k_pos_extra": {
+   "fia": 16,
+   "rtm": 8
+  },
+  "k_reserve": {
+   "fia": 8,
+   "rtm": 8
+  },
+  "k_train": {
+   "fia": 48,
+   "rtm": 24
+  },
+  "lc_folds": {
+   "fia": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "rtm": [
+    0
+   ]
+  },
+  "loto_folds": {
+   "fia": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "rtm": [
+    0
+   ]
+  },
+  "n_folds": {
+   "fia": 5,
+   "rtm": 3
+  },
+  "pos_weight_doc": {
+   "fia": 4.0,
+   "rtm": 1.0
+  },
+  "pos_weight_patch": {
+   "fia": 6.0,
+   "rtm": 4.0
+  },
+  "whole_res": {
+   "fia": 512,
+   "rtm": 384
+  }
+ },
+ "retention_rule": "uniform random draw without replacement from the full multi-scale grid, balanced and interleaved across scales, RNG seeded by (cache_seed, document index); evaluation bag = first K_max; training bag = K_b uniform from first K_train each epoch; annotation-positive extras cached for training-pool documents only; annotations never consulted for evaluation bags",
+ "theta_min_px2": 12,
+ "evidence_ablation_rule": "remove every tile with overlap > 0 px^2",
+ "frozen_blocks": [
+  "features[0] (Conv2dNormActivation)",
+  "features[1] (InvertedResidual)"
+ ],
+ "imagenet_weights": {
+  "enum": "torchvision MobileNet_V3_Small_Weights.IMAGENET1K_V1",
+  "url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth"
+ },
+ "attention_normalisation": "softmax over the tiles of one bag (whole document under exhaustive tiling)",
+ "tta": "mean of sigmoid outputs over 4 views {identity, h-flip, v-flip, hv-flip}; used for validation threshold selection and test; not used for epoch selection",
+ "model_selection": "best validation ROC-AUC epoch; threshold = F1-optimal on validation (TTA) of that fold",
+ "seeds": {
+  "tier1": [
+   0,
+   1,
+   2
+  ],
+  "tier2": [
+   0
+  ],
+  "controls": [
+   0
+  ],
+  "sensitivity": [
+   0
+  ],
+  "learning_curve/LOTO": [
+   0
+  ],
+  "exhaustive": [
+   0
+  ],
+  "fold_split": 0,
+  "cache": 1234
+ },
+ "counts": [
+  {
+   "split": "train",
+   "docs": 5803,
+   "authentic": 1006,
+   "forged": 4797,
+   "forged_%": 82.7,
+   "forged_with_regions": 4797,
+   "forged_without_regions": 0,
+   "annotated_regions": 10835
+  },
+  {
+   "split": "test",
+   "docs": 3197,
+   "authentic": 1994,
+   "forged": 1203,
+   "forged_%": 37.6,
+   "forged_with_regions": 1203,
+   "forged_without_regions": 0,
+   "annotated_regions": 2644
+  },
+  {
+   "split": "pool",
+   "docs": 5803,
+   "authentic": 1006,
+   "forged": 4797,
+   "forged_%": 82.7,
+   "forged_with_regions": 4797,
+   "forged_without_regions": 0,
+   "annotated_regions": 10835
+  },
+  {
+   "split": "test(eval)",
+   "docs": 3197,
+   "authentic": 1994,
+   "forged": 1203,
+   "forged_%": 37.6,
+   "forged_with_regions": 1203,
+   "forged_without_regions": 0,
+   "annotated_regions": 2644
+  }
+ ],
+ "listing": [
+  {
+   "split": "train",
+   "listed_rows": 5803,
+   "usable": 5803,
+   "usable_forged": 4797,
+   "missing_files": 0
+  },
+  {
+   "split": "test",
+   "listed_rows": 3197,
+   "usable": 3197,
+   "usable_forged": 1203,
+   "missing_files": 0
+  }
+ ],
+ "cache": {
+  "tag": "sc128-192_st75_kp24_e8_m12_cs1234",
+  "complete": true,
+  "N": 248503,
+  "n_docs": 9000,
+  "n_pool": 5803,
+  "n_test": 3197,
+  "base": 128,
+  "dataset": "rtm",
+  "k_pool": 24,
+  "blind_tiles": 216000,
+  "extra_tiles": 32503
+ },
+ "cache_report": [
+  {
+   "part": "pool",
+   "docs": 5803,
+   "blind_tiles": 139272,
+   "extra_positive_tiles": 32503,
+   "eval_bag_size_mean": 16.0,
+   "forged_annotated_docs": 4797,
+   "eval_bags_with_forged_tile_%": 72.19095267875755,
+   "eval_bags_with_any_overlap_%": 72.29518449030644,
+   "forged_tiles_per_forged_eval_bag": 1.596622889305816,
+   "train_pools_with_forged_tile_%": 83.15613925370023,
+   "forged_docs_short_after_ablation": 98
+  },
+  {
+   "part": "test",
+   "docs": 3197,
+   "blind_tiles": 76728,
+   "extra_positive_tiles": 0,
+   "eval_bag_size_mean": 16.0,
+   "forged_annotated_docs": 1203,
+   "eval_bags_with_forged_tile_%": 72.73482959268496,
+   "eval_bags_with_any_overlap_%": 72.98420615128845,
+   "forged_tiles_per_forged_eval_bag": 1.5727348295926848,
+   "train_pools_with_forged_tile_%": 82.29426433915212,
+   "forged_docs_short_after_ablation": 19
+  }
+ ],
+ "splits_file": "splits.json",
+ "split_files_md5": {
+  "train.txt": "2cf60a7a3f687f9d1581caf74f96c262",
+  "test.txt": "892f437b1bfc443522e61bd7f614cecf"
+ },
+ "versions": {
+  "python": "3.13.15",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "numpy": "2.1.3",
+  "sklearn": "1.6.1",
+  "opencv": "4.14.0",
+  "cuda": "12.8",
+  "cudnn": 91900
+ },
+ "hardware": {
+  "gpu": "Tesla T4",
+  "cpu_count": 4,
+  "platform": "Linux-6.18.48+-x86_64-with-glibc2.39"
+ },
+ "nondeterminism": "cudnn.benchmark=True and TF32 enabled; repeated runs with the same seed can differ slightly",
+ "timestamp": "2026-10-11 09:20:13"
+}

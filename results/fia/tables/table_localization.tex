@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Attention-annotation agreement inside forged test documents on RTM.}
+\label{tab:rtm_loc}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+v & n\_docs\_evaluable & auc\_attn & auc\_phead & hit\_attn & hit\_chance & mass\_ratio & pooled\_auc\_raw & pooled\_auc\_bagnorm \\
+\midrule
+full [bag] & 875 & 0.598 & 0.616 & 0.179 & 0.135 & 1.286 & 0.595 & 0.595 \\
+full [exh] & 1203 & 0.609 & 0.625 & 0.134 & 0.088 & 1.340 & 0.691 & 0.606 \\
+document labels only [bag] & 875 & 0.568 & 0.527 & 0.157 & 0.135 & 1.227 & 0.565 & 0.565 \\
+document labels only [exh] & 1203 & 0.592 & 0.557 & 0.117 & 0.088 & 1.252 & 0.684 & 0.581 \\
+region sampling only [bag] & 875 & 0.568 & 0.511 & 0.161 & 0.135 & 1.234 & 0.567 & 0.567 \\
+aux. instance loss only [bag] & 875 & 0.579 & 0.652 & 0.168 & 0.135 & 1.232 & 0.577 & 0.577 \\
+label permutation (doc-only) [bag] & 875 & 0.555 & 0.463 & 0.156 & 0.135 & 1.121 & 0.541 & 0.541 \\
+label permutation (full) [bag] & 875 & 0.408 & 0.617 & 0.094 & 0.135 & 0.972 & 0.426 & 0.426 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,3 @@
+part,docs,blind_tiles,extra_positive_tiles,eval_bag_size_mean,forged_annotated_docs,eval_bags_with_forged_tile_%,eval_bags_with_any_overlap_%,forged_tiles_per_forged_eval_bag,train_pools_with_forged_tile_%,forged_docs_short_after_ablation
+pool,5803,139272,32503,16.0,4797,72.19095267875755,72.29518449030644,1.596622889305816,83.15613925370023,98
+test,3197,76728,0,16.0,1203,72.73482959268496,72.98420615128845,1.5727348295926848,82.29426433915212,19

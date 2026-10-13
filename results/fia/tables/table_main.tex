@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Document-level detection on RTM. DocMIL rows: mean $\pm$ sd over fold$\times$seed models and per-seed fold ensembles (ens). Thresholds from validation folds only. Trivial all-forged F1 = 54.7; prevalence-random F1 = 37.6.}
+\label{tab:rtm_main}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+model & P & R & F1 & F1\_sd & ROC-AUC & AUC\_sd & PR-AUC & ens\_AUC & ens\_F1 & params \\
+\midrule
+Trivial: all forged & -- & -- & 54.7 & -- & 0.500 & -- & -- & -- & -- & -- \\
+Trivial: prevalence-random & -- & -- & 37.6 & -- & 0.500 & -- & -- & -- & -- & -- \\
+dct\_first\_digit\_lr & 41.5 & 99.1 & 58.5 & -- & 0.735 & -- & 0.589 & -- & -- & -- \\
+Whole-image CNN (same encoder) & 49.1 & 99.7 & 65.8 & 0.348 & 0.837 & 0.005 & 0.777 & 0.845 & 66.0 & 1.07M \\
+DocMIL, document labels only & 46.8 & 98.4 & 63.4 & 0.423 & 0.812 & 0.007 & 0.732 & 0.822 & 63.6 & 1.13M \\
+DocMIL, document labels only [exhaustive tiling] & 47.1 & 99.2 & 63.9 & 0.243 & 0.838 & 0.010 & 0.768 & 0.848 & 63.8 & 1.13M \\
+DocMIL (full) & 46.7 & 98.6 & 63.4 & 0.287 & 0.813 & 0.007 & 0.736 & 0.825 & 63.4 & 1.13M \\
+DocMIL (full) [exhaustive tiling] & 46.1 & 99.6 & 63.0 & 0.161 & 0.838 & 0.006 & 0.768 & 0.849 & 63.0 & 1.13M \\
+DocMIL (full), mean pooling & 46.1 & 98.4 & 62.8 & 0.526 & 0.800 & 0.008 & 0.713 & 0.813 & 62.9 & 1.08M \\
+\bottomrule
+\end{tabular}
+\end{table}

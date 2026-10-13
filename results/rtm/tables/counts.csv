@@ -1,0 +1,5 @@
+split,docs,authentic,forged,forged_%,forged_with_regions,forged_without_regions,annotated_regions
+train,5803,1006,4797,82.7,4797,0,10835
+test,3197,1994,1203,37.6,1203,0,2644
+pool,5803,1006,4797,82.7,4797,0,10835
+test(eval),3197,1994,1203,37.6,1203,0,2644
